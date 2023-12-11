@@ -5,11 +5,13 @@ import { ProductDetail } from "./components/ProductDetail";
 import { Contact } from "./components/Contact";
 import { Header} from "./components/Header";
 import { Footer } from "./components/Footer";
-
+import { Admin } from "./components/Admin";
 
 import './App.css';
 
 function App() {
+  const user = false;
+
   return (
     <div className="App">
         <Header />
@@ -17,9 +19,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="products" element={<ProductList />}></Route>
-            <Route path="/products/1001" element={<ProductDetail />}></Route>
+            <Route path="products/1001" element={<ProductDetail />}></Route>
             <Route path="/contact" element={<Contact />}></Route>
-            <Route path="/admin" element={<Navigate to="/" />}> </Route>
+            <Route path="/admin" element={ user ? <Admin /> : <Navigate to="/" />}> </Route>
           </Routes>
         </main>
         <Footer />
